@@ -260,8 +260,12 @@ DEPENDENCIES
   mini_magick (= 3.8.0)
   minitest-reporters (= 1.0.5)
   pg (= 0.17.1)
+<<<<<<< HEAD
   rails (= 4.2.0.beta2)
   rails-html-sanitizer (= 1.0.1)
+=======
+  rails (= 4.2.0.beta4)
+>>>>>>> e3cb3b7... Remove unused gem
   rails_12factor (= 0.0.2)
   sass-rails (= 5.0.0.beta1)
   sdoc (= 0.4.0)
