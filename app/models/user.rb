@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
     active_relationships.create(followed_id: other_user.id)
   end
 
-  # Unollows a user.
+  # Unfollows a user.
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
