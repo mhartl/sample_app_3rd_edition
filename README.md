@@ -33,7 +33,7 @@ $ git branch --all
   remotes/origin/user-microposts
 ```
 
-To check out one of these chapter-specific branches, just use `git checkout` followed by the name without `remotes/origin`:
+To check out one of these chapter-specific branches, just use `git checkout` followed by the name without `remotes/origin/`:
 
 ```
 $ git checkout log-in-log-out
