@@ -23,8 +23,8 @@ class PasswordResetsController < ApplicationController
   end
   
   def update
-    if both_passwords_blank?
-      flash.now[:danger] = "Password/confirmation can't be blank"
+    if password_blank?
+      flash.now[:danger] = "Password can't be blank"
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
@@ -41,10 +41,9 @@ class PasswordResetsController < ApplicationController
       params.require(:user).permit(:password, :password_confirmation)
     end
     
-    # Returns true if password & confirmation are blank.
-    def both_passwords_blank?
-      params[:user][:password].blank? && 
-      params[:user][:password_confirmation].blank?
+    # Returns true if password is blank.
+    def password_blank?
+      params[:user][:password].blank?
     end
   
     # Before filters

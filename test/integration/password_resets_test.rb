@@ -42,11 +42,11 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
           user: { password:              "foobaz",
                   password_confirmation: "barquux" }
     assert_select 'div#error_explanation'
-    # Blank password & confirmation
+    # Blank password
     patch password_reset_path(user.reset_token),
           email: user.email,
           user: { password:              "  ",
-                  password_confirmation: "  " }
+                  password_confirmation: "foobar" }
     assert_not flash.empty?
     assert_template 'password_resets/edit'
     # Valid password & confirmation
