@@ -241,8 +241,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (2.11.1)
-      rack (>= 1.1, < 2.0)
+    puma (3.1.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -339,7 +338,7 @@ DEPENDENCIES
   mini_magick (= 3.8.0)
   minitest-reporters (= 1.0.5)
   pg (= 0.17.1)
-  puma (= 2.11.1)
+  puma (= 3.1.0)
   rails (= 4.2.2)
   rails_12factor (= 0.0.2)
   sass-rails (= 5.0.2)
@@ -350,3 +349,6 @@ DEPENDENCIES
   uglifier (= 2.5.3)
   web-console (= 2.0.0.beta3)
   will_paginate (= 3.0.7)
+
+BUNDLED WITH
+   1.11.2
