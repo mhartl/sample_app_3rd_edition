@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema version="1.0" manual="0">
+  <root>
+    <attributes>
+      <![CDATA[#
+INSTALL_DIR    = $PWD
+
+REPORTS_DIR    = $INSTALL_DIR/test/reports
+COVERAGE_DIR   = $INSTALL_DIR/coverage]]>
+    </attributes>
+    <suite name="Install" state="1" id=".sh" description="Running **bundle install** and **database migration**">
+      <attributes>
+        <![CDATA[cd $INSTALL_DIR
+bundle install
+bundle exec rake db:migrate]]>
+      </attributes>
+    </suite>
+    <suite name="Run.tests" state="1" id=".sh" description="used for running **all** of the test cases">
+      <attributes>
+        <![CDATA[rm -rf $COVERAGE_DIR
+
+cd $INSTALL_DIR
+bundle exec rake minitest test  
+echo "$REPORTS_DIR/TEST*.xml{test}" > ${self.result}]]>
+      </attributes>
+    </suite>
+    <suite name="Coverage" state="1" id=".sh" description="**Code coverage** based on latest run. Review the **Reports** tab for historical tracking">
+      <attributes>
+        <![CDATA[echo "$COVERAGE_DIR/coverage.xml" > ${self.result}
+
+cd $COVERAGE_DIR
+tar -zcvf $INSTALL_DIR/coverage-html.tar.gz .
+echo "@$INSTALL_DIR/coverage-html.tar.gz {Code Coverage Details}" >> ${self.result}
+]]>
+      </attributes>
+    </suite>
+  </root>
+</schema>

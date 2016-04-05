@@ -17,3 +17,9 @@
 
 # Ignore Spring files.
 /spring/*.pid
+
+# Sample stuff
+coverage-html.tar.gz
+coverage/
+test/reports/
+

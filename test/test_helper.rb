@@ -4,6 +4,19 @@ require 'rails/test_help'
 require "minitest/reporters"
 Minitest::Reporters.use!
 
+## Sample additions
+require 'simplecov'
+require 'simplecov-cobertura'
+SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::CoberturaFormatter,
+]
+
+SimpleCov.start 'rails'
+## 
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all

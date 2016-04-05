@@ -1,42 +1,31 @@
-# Ruby on Rails Tutorial: sample application
+[![Testspace](http://www.testspace.com/public/img/testspace_logo.png)](http://www.testspace.com)
+***
 
-This is the sample application for the
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/). You can use this reference implementation to help track down errors if you end up having trouble with code in the tutorial. In particular, as a first debugging check I suggest getting the test suite to pass on your local machine:
+## Ruby/Minitest sample for demonstrating Testspace 
 
-```
-$ cd ~/workspace
-$ git clone https://github.com/mhartl/sample_app_3rd_edition.git
-$ cd sample_app_3rd_edition
-$ bundle install
-$ bundle exec rake db:migrate
-$ bundle exec rake test
-```
+This is the sample application for the [*Ruby on Rails Tutorial: Learn Web Development with Rails*](http://www.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/). It is being used to demonstrate Testspace usage models for easier test content management. 
 
-The repository also has chapter-specific branches with the state of the code at the end of each chapter. You can view them as follows:
+[![Build Status](https://travis-ci.org/testspace-samples/ruby.minitest.svg?branch=master)](https://travis-ci.org/testspace-samples/ruby.minitest)
+[![Space Health](http://munderseth.stridespace.com/projects/261/spaces/800/badge)](http://munderseth.stridespace.com/projects/261/spaces/800 "Test Cases")
+[![Space Metric](http://munderseth.stridespace.com/projects/261/spaces/800/metrics/163/badge)](http://munderseth.stridespace.com/projects/261/spaces/800/metrics#metric-163 "Line/Statement Coverage")
 
-```
-$ git branch --all
-  .
-  .
-  .
-  remotes/origin/account-activation-password-reset
-  remotes/origin/filling-in-layout
-  remotes/origin/following-users
-  remotes/origin/log-in-log-out
-  remotes/origin/master
-  remotes/origin/modeling-users
-  remotes/origin/sign-up
-  remotes/origin/static-pages
-  remotes/origin/updating-users
-  remotes/origin/user-microposts
-```
+***
 
-To check out one of these chapter-specific branches, just use `git checkout` followed by the name without `remotes/origin/`:
+We made a few minor modifications for reporting purposes. In order to run this sample you will need a host workstation that supports the [Minitest test framework](http://docs.seattlerb.org/minitest/). 
 
-```
-$ git checkout log-in-log-out
-```
+Publishing results example: 
 
-This should help you track down any discrepancies between your code and the code in the tutorial.
+<pre>
+  bundle exec rake minitest test
+  testspace publish [Tests]test/reports/TEST*.xml{test} coverage/coverage.xml
+</pre> 
+
+Checkout the [sample](http://munderseth.stridespace.com/projects/ruby/spaces/minitest.example). 
+
+***
+
+To fork this example using Travis requires:
+  - Create an account at www.testspace.com 
+  - Travis Environment Variables:
+    - `TESTSPACE_USER_TOKEN` set to the `value` defined as your [Access token](http://help.testspace.com/using-your-organization:user-settings).
+    - `TESTSPACE_URL` set to `my-org-name.testspace.com/my-project/my-space`. Refer [here](http://help.testspace.com/reference:runner-reference#config) for more details. This example uses `samples.testspace.com/ruby/minitest.example`.
