@@ -5,7 +5,7 @@
   
  env:
    global:
-   - secure: wkvtP8MJJk8DSa4Vfc/ojSNK0oCZb29qzXXfDzu+q/hSnwgLQnLg+xjq2ZbY1x48yuCol9WiS/dtGptowgMuot0Ecwuk9zrZIOAxF4D9LNMpuC3/7ik4lHdvvODXBObdwE+WEvWW5ViqGb1UWFYHF7GoALrX6LRx9oOaIZ+EDew2s5D6egQ396JZFc78PnRGbH7+E+KguQzhea0dtz2k2SMYkfPV1flokU75wSiPlDIDGPlkkEDISeRoMsSK/AeVthKj62YnWsg+p5QmoO+oVyu76XjMwzMHrj6ZoCNHXZEWi+3hDlH5ummcrMCOaFyIpYk+jV3uZXhXbNhZYtAzAg==
+    - secure: qqiG0U3VgetH27qumWL4G0PQZgtdazxKB+D+JtMwnKcZKBS5h/9dyFYFpZriIHOdpgPHQVUfw2Crtm1PCprBdH/ij4WzFI7Oqdxhcyl3TjZls15l5G92vi311zhGDBdJJhdt83ZJs2DK83Vzy8706RhJKQyBkymB7dP8Wh8vcaGiK8uLfxYgzBRT9P7zFVR+TZQ8BM6kbs+E4Wm7vcmfGAYyJMrPnuqIxpBqnEmDz/dTOS6b5S1Ya2MOYiU9PHPVJINdh9WisLYiOOTzNdN1CnXQLA4SLUcluSm4XKt8Cjbp6VTqZk1o//8RYEberLZflIbKmnuIY/xcfwH0KcH8Qg==
 
  before_script:
    - ./testspace_install.sh

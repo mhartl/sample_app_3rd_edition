@@ -6,8 +6,8 @@
 This is the sample application for the [*Ruby on Rails Tutorial: Learn Web Development with Rails*](http://www.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/). It is being used to demonstrate Testspace usage models for easier test content management. 
 
 [![Build Status](https://travis-ci.org/testspace-samples/ruby.minitest.svg?branch=master)](https://travis-ci.org/testspace-samples/ruby.minitest)
-[![Space Health](http://munderseth.stridespace.com/projects/261/spaces/800/badge)](http://munderseth.stridespace.com/projects/261/spaces/800 "Test Cases")
-[![Space Metric](http://munderseth.stridespace.com/projects/261/spaces/800/metrics/163/badge)](http://munderseth.stridespace.com/projects/261/spaces/800/metrics#metric-163 "Line/Statement Coverage")
+[![Space Health](https://samples.testspace.com/projects/85/spaces/288/badge)](https://samples.testspace.com/projects/85/spaces/288 "Test Cases")
+[![Space Metric](https://samples.testspace.com/projects/85/spaces/288/metrics/183/badge)](https://samples.testspace.com/projects/85/spaces/288/metrics#metric-183 "Line/Statement Coverage")
 
 ***
 
@@ -20,7 +20,7 @@ Publishing results example:
   testspace publish [Tests]test/reports/TEST*.xml{test} coverage/coverage.xml
 </pre> 
 
-Checkout the [sample](http://munderseth.stridespace.com/projects/ruby/spaces/minitest.example). 
+Checkout the [Space](https://samples.testspace.com/projects/ruby/spaces/minitest). 
 
 ***
 
