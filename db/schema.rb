@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160420073347) do
 
   create_table "my_favorites", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "mictopost_id"
+    t.integer  "micropost_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

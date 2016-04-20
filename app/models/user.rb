@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :my_favorites, dependent: :destroy
+  has_many :favorite_microposts, through: :my_favorites, source: :micropost
+  
+  
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
