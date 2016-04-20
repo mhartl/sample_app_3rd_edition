@@ -9,6 +9,14 @@ class Micropost < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validate  :picture_size
   
+  def favorite
+    current_user.my_favorites << Micropost.find(params[:id])
+  end
+  
+  def unfavorite
+    current_user.my_favorites.find_by(micropost_id: params[:id]).destroy
+  end
+  
   private
   
     # Validates the size of an uploaded picture.
