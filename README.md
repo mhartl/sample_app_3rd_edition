@@ -9,7 +9,7 @@ by [Michael Hartl](http://www.michaelhartl.com/). You can use this reference imp
 $ cd ~/workspace
 $ git clone https://github.com/mhartl/sample_app_3rd_edition.git
 $ cd sample_app_3rd_edition
-$ bundle install
+$ bundle install --without production
 $ bundle exec rake db:migrate
 $ bundle exec rake test
 ```
