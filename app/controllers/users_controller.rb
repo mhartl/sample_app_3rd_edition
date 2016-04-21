@@ -60,6 +60,12 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  def favorite_microposts
+  end
+  
+  def unfavorite_microposts
+  end
+  
   private
     
     def user_params

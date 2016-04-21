@@ -10,16 +10,12 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :following, :followers
-    end
-  end
-  resources :micropostes do
-    member do
-      patch :favorite
-      delete :unfavorite
+      get :favorite, :unfavorite
     end
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+  resources :my_favorites,        only: [:create, :destroy]
 end

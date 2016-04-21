@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :my_favorites, dependent: :destroy
   has_many :favorite_microposts, through: :my_favorites, source: :micropost
-  
+
   
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
-
+  
   # Unfollows a user.
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
@@ -102,6 +102,19 @@ class User < ActiveRecord::Base
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+  
+  #favotite micropost
+  def favorite(micropost)
+    my_favorites.create(micropost_id: micropost.id)
+  end
+  
+  def unfavorite(micropost)
+    my_favorites.find_by(micropost_id: micropost.id).destroy
+  end
+  
+  def have_favorite?(micropost)
+    favorite_microposts.include?(micropost)
   end
 
   private
