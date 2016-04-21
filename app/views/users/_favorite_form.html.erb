@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <div id="follow_form">
+  <div id="favorite_form">
     <% if current_user.have_favorite?(micropost) %>
       <%= render 'users/unfavorite', micropost: micropost %>
     <% else %>

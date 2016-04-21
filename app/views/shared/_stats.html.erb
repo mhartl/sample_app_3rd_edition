@@ -14,5 +14,8 @@
   </a>
   <a>
     <%= link_to "⭐️", favorite_microposts_user_url(@user) %>
+    <div id="my_favorites" class="stat">
+      <%= @user.my_favorites.count %>
+    </div>
   </a>
 </div>
