@@ -6,7 +6,7 @@ class MyFavoritesController < ApplicationController
 	end
 	
 	def destroy
-		@micropost = Micropost.find(params[:micropost_id])
+		@micropost = Micropost.find(params[:micropost_id]).destroy
 		current_user.unfavorite(@micropost)
 	end
 end

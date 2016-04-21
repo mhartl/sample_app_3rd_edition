@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :following, :followers
-      get :favorite, :unfavorite
+      get :favorite_microposts
     end
   end
   resources :account_activations, only: [:edit]

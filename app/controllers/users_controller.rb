@@ -61,9 +61,10 @@ class UsersController < ApplicationController
   end
   
   def favorite_microposts
-  end
-  
-  def unfavorite_microposts
+    if logged_in?
+      @micropost = current_user.microposts.build
+      @feed_items = User.find(params[:id]).favorite_microposts.paginate(page: params[:page])
+    end
   end
   
   private
