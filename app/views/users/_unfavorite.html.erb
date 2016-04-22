@@ -1,5 +1,5 @@
 <%= form_for(current_user.my_favorites.find_by(micropost_id: micropost.id), html: { method: :delete }, remote: true) do |f| %>
 <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
   
-	<%= f.submit "unfavo", class: "btn btn-primary" %>
+	<%= f.submit "unfavo", class: "btn btn-warning" %>
 <% end %>

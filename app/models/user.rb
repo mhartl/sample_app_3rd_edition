@@ -106,11 +106,15 @@ class User < ActiveRecord::Base
   
   #favotite micropost
   def favorite(micropost)
+    
     my_favorites.create(micropost_id: micropost.id)
+    
   end
   
   def unfavorite(micropost)
+    
     my_favorites.find_by(micropost_id: micropost.id).destroy
+    
   end
   
   def have_favorite?(micropost)
