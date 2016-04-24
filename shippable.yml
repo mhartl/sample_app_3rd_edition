@@ -5,18 +5,17 @@
   
  env:
    global:
-    - secure: qqiG0U3VgetH27qumWL4G0PQZgtdazxKB+D+JtMwnKcZKBS5h/9dyFYFpZriIHOdpgPHQVUfw2Crtm1PCprBdH/ij4WzFI7Oqdxhcyl3TjZls15l5G92vi311zhGDBdJJhdt83ZJs2DK83Vzy8706RhJKQyBkymB7dP8Wh8vcaGiK8uLfxYgzBRT9P7zFVR+TZQ8BM6kbs+E4Wm7vcmfGAYyJMrPnuqIxpBqnEmDz/dTOS6b5S1Ya2MOYiU9PHPVJINdh9WisLYiOOTzNdN1CnXQLA4SLUcluSm4XKt8Cjbp6VTqZk1o//8RYEberLZflIbKmnuIY/xcfwH0KcH8Qg==
+    - secure: w9t+Op2w/77IwngGxh1kbU42XFVgUR+jBmBKZ8LIX+LAMnv8GqX6Qqg93afQaRcWCcV2LMdGwWWPBmX2oi31HyJdB+nqYnX+3OMF6KQMNNOvsxHmHmNyl30YIBKmaBS3aNg5d4c1p65W5c5/u4iJfNJY/B9DLyr3ZH+2n84RHvM67IypDmHIsBHfvL+IKzMJw4tKu930MDIciyMCRrcrM26zhbk10UgVueJv+vTsrwEnVrPF2XX75I8Hoe/O7Tnik4860u8cOVFNWdYAmGVUmIJGCMXnOC9QzkiUh8pWBgQAarP3q804/JUu+/H9jC0lNMh2Mf03feSvufkp8V+MFA==
 
  before_script:
    - ./testspace_install.sh
+   - export PATH="${HOME}/testspace:${PATH}"
    - mkdir -p shippable/codecoverage
    - mkdir -p shippable/testresults
     
  script: 
-   - export PATH="${HOME}/testspace:${PATH}"
-   - testspace config url $TESTSPACE_TOKEN
-   - testspace import .testspace.xml
-   - testspace run
+   - testspace import .testspace.xml ${TESTSPACE_URL}
+   - testspace run ${TESTSPACE_URL}
    
    - cp test/reports/TEST*.xml shippable/testresults
    - cp coverage/coverage.xml shippable/codecoverage
