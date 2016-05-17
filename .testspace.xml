@@ -30,7 +30,7 @@ echo "$REPORTS_DIR/TEST*.xml{test}" > ${self.result}]]>
 
 cd $COVERAGE_DIR
 tar -zcvf $INSTALL_DIR/coverage-html.tar.gz .
-echo "@$INSTALL_DIR/coverage-html.tar.gz {Code Coverage Details}" >> ${self.result}
+echo "+$INSTALL_DIR/coverage-html.tar.gz {Code Coverage Details}" >> ${self.result}
 ]]>
       </attributes>
     </suite>
