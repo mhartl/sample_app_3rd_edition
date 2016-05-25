@@ -1,0 +1,4 @@
+machine:
+  ruby:
+    version: 2.3.0
+    
