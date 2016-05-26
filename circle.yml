@@ -2,3 +2,7 @@ machine:
   ruby:
     version: 2.3.0
     
+test:
+  override:
+    - bundle exec rake minitest test
+    - cp test/reports/TEST*.xml $CIRCLE_TEST_REPORTS
