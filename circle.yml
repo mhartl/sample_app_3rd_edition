@@ -5,4 +5,5 @@ machine:
 test:
   override:
     - bundle exec rake minitest test
-    - cp test/reports/TEST*.xml $CIRCLE_TEST_REPORTS
+    - mkdir -p $CIRCLE_TEST_REPORTS/minitest
+    - cp $PWD/test/reports/TEST*.xml $CIRCLE_TEST_REPORTS/minitest
