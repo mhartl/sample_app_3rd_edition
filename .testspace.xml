@@ -11,6 +11,7 @@ COVERAGE_DIR   = $INSTALL_DIR/coverage]]>
     <suite name="Install" state="1" id=".sh" description="Running **bundle install** and **database migration**">
       <attributes>
         <![CDATA[cd $INSTALL_DIR
+gem install bundler
 bundle install
 bundle exec rake db:migrate]]>
       </attributes>
