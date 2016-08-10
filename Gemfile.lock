@@ -39,6 +39,7 @@ GEM
       tzinfo (~> 1.1)
     ansi (1.5.0)
     arel (6.0.3)
+    ast (2.3.0)
     bcrypt (3.1.7)
     binding_of_caller (0.7.3.pre1)
       debug_inspector (>= 0.0.1)
@@ -46,6 +47,9 @@ GEM
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.10)
       will_paginate
+    brakeman (3.3.3)
+    brakeman_translate_checkstyle_format (0.0.1)
+      thor
     builder (3.2.2)
     byebug (9.0.4)
     carrierwave (0.10.0)
@@ -241,6 +245,9 @@ GEM
     notiffany (0.1.0)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    parser (2.3.1.2)
+      ast (~> 2.2)
+    powerpack (0.1.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -281,12 +288,21 @@ GEM
       activesupport (= 4.2.2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    rainbow (2.1.0)
     rake (11.1.2)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
+    rubocop (0.42.0)
+      parser (>= 2.3.1.1, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-checkstyle_formatter (0.2.0)
+      rubocop (>= 0.20.1)
     ruby-progressbar (1.8.1)
     ruby_dep (1.3.1)
     sass (3.4.22)
@@ -296,6 +312,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    scss_lint (0.49.0)
+      rake (>= 0.9, < 12)
+      sass (~> 3.4.20)
+    scss_lint_reporter_checkstyle (0.2.0)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
@@ -328,6 +348,7 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode-display_width (1.1.0)
     web-console (2.0.0.beta3)
       activemodel (~> 4.0)
       binding_of_caller (= 0.7.3.pre1)
@@ -343,6 +364,8 @@ DEPENDENCIES
   bcrypt (= 3.1.7)
   bootstrap-sass (= 3.2.0.0)
   bootstrap-will_paginate (= 0.0.10)
+  brakeman
+  brakeman_translate_checkstyle_format
   carrierwave (= 0.10.0)
   ci_reporter_minitest
   coffee-rails (= 4.1.0)
@@ -358,7 +381,11 @@ DEPENDENCIES
   puma (= 3.1.0)
   rails (= 4.2.2)
   rails_12factor (= 0.0.2)
+  rubocop
+  rubocop-checkstyle_formatter
   sass-rails (= 5.0.2)
+  scss_lint
+  scss_lint_reporter_checkstyle
   sdoc (= 0.4.0)
   simplecov
   simplecov-cobertura

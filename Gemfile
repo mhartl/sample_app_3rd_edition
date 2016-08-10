@@ -23,6 +23,19 @@ group :development, :test do
   gem 'pry-byebug', platform: [:ruby_20]
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
+  
+   # A Ruby static code analyzer.
+  gem 'rubocop', :require => false
+  # A Rubocop formatter that outputs in Checkstyle format.
+  gem 'rubocop-checkstyle_formatter', :require => false
+  # A static analysis security vulnerability scanner for Ruby on Rails.
+  gem 'brakeman', :require => false
+  # Translate brakeman json format into Checkstyle format.
+  gem 'brakeman_translate_checkstyle_format', :require => false
+  # Configurable tool for writing clean and consistent SCSS.
+  gem 'scss_lint', require: false
+  # Checkstyle formatter for SCSS Lint.
+  gem 'scss_lint_reporter_checkstyle', require: false
 end
 
 group :test do
