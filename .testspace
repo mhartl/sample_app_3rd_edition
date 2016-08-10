@@ -1,4 +1,4 @@
-tmp/rubocop_checkstyle.xml
+tmp/rubocop.txt
 tmp/brakeman_checkstyle.xml
 tmp/scss-lint_checkstyle.xml
 [Tests]$TEST_REPORTS/TEST*.xml{test} 
