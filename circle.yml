@@ -15,4 +15,4 @@ test:
     
   post:
     - curl -s https://testspace-client.s3-us-west-2.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-    - TEST_REPORTS=$CIRCLE_TEST_REPORTS testspace publish @.testspace $TESTSPACE_TOKEN/${CIRCLE_BRANCH}.c9
+    - TEST_REPORTS=$CIRCLE_TEST_REPORTS testspace publish @.testspace $TESTSPACE_TOKEN/${CIRCLE_BRANCH}.circle
