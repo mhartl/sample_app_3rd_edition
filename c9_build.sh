@@ -7,9 +7,9 @@ bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.
 bundle exec scss-lint --require=scss_lint_reporter_checkstyle --format=Checkstyle --out=tmp/scss-lint_checkstyle.xml  app/assets/stylesheets/
 
 # Test
+export CI_REPORTS=$PWD/test/reports
 bundle exec rake minitest test
 
 # Publish
 curl -s https://testspace-client.s3-us-west-2.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-export TEST_REPORTS=$PWD/test/reports
 testspace publish @.testspace $C9_BRANCH.c9
