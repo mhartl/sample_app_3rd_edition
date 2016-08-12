@@ -2,17 +2,22 @@ language:
   - ruby
   
 rvm:
-  - 2.2
+  - 2.3.1
   
 before_install:
 # Install Testspace Runner
-  - ./testspace_install.sh
-  - export PATH="${HOME}/testspace:${PATH}"
-
+  - curl -s https://testspace-client.s3-us-west-2.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+ 
 script:
   - bundle install
-  - bundle exec rake db:migrate
+ # - bundle exec rake db:migrate
+  - bundle exec rubocop --format emacs --out tmp/rubocop.txt || true
+  - bundle exec brakeman -o tmp/brakeman.json
+  - bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.json" > tmp/brakeman_checkstyle.xml
+  - bundle exec scss-lint --require=scss_lint_reporter_checkstyle --format=Checkstyle --out=tmp/scss-lint_checkstyle.xml  app/assets/stylesheets/ || true
+
+  - export CI_REPORTS=$PWD/test/reports
   - bundle exec rake minitest test
   
 # Publish Test Results along with Coverage
-  - testspace publish [Tests]test/reports/TEST*.xml{test} coverage/coverage.xml ${TESTSPACE_URL}
+  - testspace publish @.testspace $TESTSPACE_TOKEN/${TRAVIS_BRANCH}.travis#Build.${TRAVIS_BUILD_NUMBER}
