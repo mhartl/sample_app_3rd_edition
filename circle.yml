@@ -13,5 +13,5 @@ test:
     - bundle exec rake minitest test
  
   post:
-    - curl -s https://testspace-client.s3-us-west-2.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-    - testspace publish @.testspace $TESTSPACE_TOKEN/${CIRCLE_BRANCH}.circle
+    - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+    - testspace publish @.testspace $TESTSPACE_TOKEN/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}

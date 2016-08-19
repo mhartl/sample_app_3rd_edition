@@ -9,7 +9,7 @@
    
  before_script:
  # Install Testspace Client
-   - curl -s https://testspace-client.s3-us-west-2.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+   - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
  #  - mkdir -p shippable/codecoverage
  #  - mkdir -p shippable/testresults
     
@@ -25,7 +25,7 @@
   - bundle exec rake minitest test
   
 # Publish Test Results along with Coverage
-  - testspace publish @.testspace $TESTSPACE_TOKEN/${BRANCH}.ship#Build.${BUILD_NUMBER}
+  - testspace publish @.testspace $TESTSPACE_TOKEN/${BRANCH}#ship.Build.${BUILD_NUMBER}
    
  #  - cp test/reports/TEST*.xml shippable/testresults
  #  - cp coverage/coverage.xml shippable/codecoverage

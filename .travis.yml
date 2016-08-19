@@ -6,7 +6,7 @@ rvm:
   
 before_install:
 # Install Testspace Runner
-  - curl -s https://testspace-client.s3-us-west-2.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+  - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
  
 script:
   - bundle install
@@ -20,4 +20,4 @@ script:
   - bundle exec rake minitest test
   
 # Publish Test Results along with Coverage
-  - testspace publish @.testspace $TESTSPACE_TOKEN/${TRAVIS_BRANCH}.travis#Build.${TRAVIS_BUILD_NUMBER}
+  - testspace publish @.testspace $TESTSPACE_TOKEN/${TRAVIS_BRANCH}#travis.Build.${TRAVIS_BUILD_NUMBER}
