@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Build
+# gem install bundler
+# bundle install
+
 # Analysis
 bundle exec rubocop --format emacs --out tmp/rubocop.txt
 bundle exec brakeman -o tmp/brakeman.json
@@ -11,6 +15,6 @@ export CI_REPORTS=$PWD/test/reports
 bundle exec rake minitest test
 
 # Publish
-# export C9_BRANCH=master (branch name)
-curl -s https://testspace-client.s3-us-west-2.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-testspace publish @.testspace $C9_BRANCH.c9
+# curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+# export CI_REPORTS=$PWD/test/reports
+# testspace publish @.testspace BRACH-NAME.c9
