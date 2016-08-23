@@ -19,8 +19,8 @@
   - bundle exec rubocop --format emacs --out tmp/rubocop.txt || true
   - bundle exec brakeman -o tmp/brakeman.json
   - bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.json" > tmp/brakeman_checkstyle.xml
-  - bundle exec scss-lint --require=scss_lint_reporter_checkstyle --format=Checkstyle --out=tmp/scss-lint_checkstyle.xml  app/assets/stylesheets/ || true
-
+  - bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-lint.txt  app/assets/stylesheets/ || true
+  
   - export CI_REPORTS=$PWD/test/reports
   - bundle exec rake minitest test
   
