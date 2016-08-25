@@ -34,7 +34,7 @@ Publishing Results:
 
 <pre>
 curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-testspace publish @.testspace $TESTSPACE_TOKEN
+testspace @.testspace $TESTSPACE_TOKEN
 </pre> 
 
 Checkout the [Space](http://munderseth.stridespace.com/spaces/883). Note that the `.testspace` file contains the set of files to publish. 
