@@ -15,5 +15,5 @@ export CI_REPORTS=$PWD/test/reports
 bundle exec rake minitest test
 
 # Publish
-# curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-# CI_REPORTS=$PWD/test/reports testspace publish @.testspace BRACH-NAME.c9
+curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+CI_REPORTS=$PWD/test/reports testspace publish @.testspace master.c9
