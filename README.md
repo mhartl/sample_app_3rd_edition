@@ -3,7 +3,9 @@
 
 ## Ruby/Minitest sample for demonstrating Testspace 
 
-This is the sample application for the [*Ruby on Rails Tutorial: Learn Web Development with Rails*](http://www.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/). It is being used to demonstrate Testspace usage models for easier test content management. 
+This is the sample application for the [*Ruby on Rails Tutorial: Learn Web Development with Rails*](http://www.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/). It is being used to demonstrate Testspace  publishing test content. 
+We made a few minor modifications for reporting purposes. 
+
 
 [![Build Status](https://travis-ci.org/testspace-samples/ruby.minitest.svg?branch=master)](https://travis-ci.org/testspace-samples/ruby.minitest)
 [![Space Health](http://munderseth.stridespace.com/projects/273/spaces/883/badge)](http://munderseth.stridespace.com/projects/273/spaces/883 "Test Cases")
@@ -11,8 +13,8 @@ This is the sample application for the [*Ruby on Rails Tutorial: Learn Web Devel
 [![Space Metric](http://munderseth.stridespace.com/projects/273/spaces/883/metrics/267/badge)](http://munderseth.stridespace.com/spaces/883/schema/Static%20Analysis "Static Analysis (issues)")
 
 ***
+In order to run this sample you will need a host workstation that supports the [Minitest test framework](http://docs.seattlerb.org/minitest/). 
 
-We made a few minor modifications for reporting purposes. In order to run this sample you will need a host workstation that supports the [Minitest test framework](http://docs.seattlerb.org/minitest/). 
 
 Running Static Analysis: 
 
@@ -44,8 +46,10 @@ Checkout the [Space](http://munderseth.stridespace.com/spaces/883). Note that th
 ***
 
 To replicate this sample: 
-  - Fork the Repo
-  - Create an account at www.testspace.com.
-  - Use the `Account` tab in Testspace to *Connect* to GitHub
-  - Create an environment variable called `TESTSPACE_TOKEN` using the `Access token` found in the Project settings.
+  - Account at www.testspace.com.
+  - Environment Variable called `TESTSPACE_TOKEN`:
+    - `credentials` set to `username:password` or your [access token](http://help.testspace.com/using-your-organization:user-settings).
+    - `my-org-name.testspace.com/my-project/my-space` based on your subdomain, project, and space names. Refer [here](http://help.testspace.com/reference:runner-reference#login-credentials) for more details. 
+  
+   
  

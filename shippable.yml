@@ -26,6 +26,3 @@
   
 # Publish Test Results along with Coverage
   - testspace publish @.testspace $TESTSPACE_TOKEN/${BRANCH}#ship.Build.${BUILD_NUMBER}
-   
- #  - cp test/reports/TEST*.xml shippable/testresults
- #  - cp coverage/coverage.xml shippable/codecoverage
