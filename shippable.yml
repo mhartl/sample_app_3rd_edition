@@ -7,15 +7,8 @@
    global:
     - secure: i2PruLTZiYl1zdKyFqKTtoEIrcH7so5alMProTB5D5hXDZjMqrjePLkUhWYEhVYqSYQeocigDd3PsNxisrMSK91SjhslvpqPOC+fG3sZ4D+V5vLZDZK/6Tvdb/+A7shbezKYKdgJNOwgWPCw9QfqZKrAvMgdLfEZHHJPB89I7xDvt+ouZcgpiVz+ekK8fW913cVjpzJTaVLFCK8AgUkrZoXxfGC76yXmZt591zYbJ3bWFoECBLoB5GAGJRpLA9qjtc64Kjj1bQDLUR89h14UFzmdSWNmENCqZJcxnJIDdx0e7hOQ0RNkQ8bVHphHiO7lKnQ/LLUDKdxAMsttfZ6VvA==
    
- before_script:
- # Install Testspace Client
-   - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
- #  - mkdir -p shippable/codecoverage
- #  - mkdir -p shippable/testresults
-    
  script: 
   - bundle install
- # - bundle exec rake db:migrate
   - bundle exec rubocop --format emacs --out tmp/rubocop.txt || true
   - bundle exec brakeman -o tmp/brakeman.json
   - bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.json" > tmp/brakeman_checkstyle.xml
@@ -24,5 +17,5 @@
   - export CI_REPORTS=$PWD/test/reports
   - bundle exec rake minitest test
   
-# Publish Test Results along with Coverage
+  - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
   - testspace publish @.testspace $TESTSPACE_TOKEN/${BRANCH}#ship.Build.${BUILD_NUMBER}

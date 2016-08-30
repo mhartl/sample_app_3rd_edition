@@ -4,6 +4,7 @@ machine:
     
 test:
   override:
+    - bundle install
     - bundle exec rubocop --format emacs --out tmp/rubocop.txt || true
     - bundle exec brakeman -o tmp/brakeman.json
     - bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.json" > tmp/brakeman_checkstyle.xml
