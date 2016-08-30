@@ -36,6 +36,7 @@ bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-
 Running Tests with Code Coverage: 
 
 <pre>
+bundle install
 export CI_REPORTS=$PWD/test/reports
 bundle exec rake minitest test
 </pre> 
