@@ -301,8 +301,6 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    rubocop-checkstyle_formatter (0.2.0)
-      rubocop (>= 0.20.1)
     ruby-progressbar (1.8.1)
     ruby_dep (1.3.1)
     sass (3.4.22)
@@ -315,7 +313,6 @@ GEM
     scss_lint (0.49.0)
       rake (>= 0.9, < 12)
       sass (~> 3.4.20)
-    scss_lint_reporter_checkstyle (0.2.0)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
@@ -382,10 +379,8 @@ DEPENDENCIES
   rails (= 4.2.2)
   rails_12factor (= 0.0.2)
   rubocop
-  rubocop-checkstyle_formatter
   sass-rails (= 5.0.2)
   scss_lint
-  scss_lint_reporter_checkstyle
   sdoc (= 0.4.0)
   simplecov
   simplecov-cobertura
@@ -397,4 +392,4 @@ DEPENDENCIES
   will_paginate (= 3.0.7)
 
 BUNDLED WITH
-   1.12.1
+   1.12.5
