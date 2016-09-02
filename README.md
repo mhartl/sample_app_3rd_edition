@@ -27,6 +27,7 @@ In order to run this sample you will need a host workstation that supports the [
 Running Static Analysis: 
 
 <pre>
+bundle install
 bundle exec rubocop --format emacs --out tmp/rubocop.txt
 bundle exec brakeman -o tmp/brakeman.json
 bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.json" > tmp/brakeman_checkstyle.xml
@@ -36,7 +37,6 @@ bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-
 Running Tests with Code Coverage: 
 
 <pre>
-bundle install
 export CI_REPORTS=$PWD/test/reports
 bundle exec rake minitest test
 </pre> 
