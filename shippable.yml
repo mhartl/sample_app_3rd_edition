@@ -1,21 +1,22 @@
  language: ruby
  
  rvm:
-  - 2.2
+  - 2.3.1
   
  env:
    global:
-    - secure: w9t+Op2w/77IwngGxh1kbU42XFVgUR+jBmBKZ8LIX+LAMnv8GqX6Qqg93afQaRcWCcV2LMdGwWWPBmX2oi31HyJdB+nqYnX+3OMF6KQMNNOvsxHmHmNyl30YIBKmaBS3aNg5d4c1p65W5c5/u4iJfNJY/B9DLyr3ZH+2n84RHvM67IypDmHIsBHfvL+IKzMJw4tKu930MDIciyMCRrcrM26zhbk10UgVueJv+vTsrwEnVrPF2XX75I8Hoe/O7Tnik4860u8cOVFNWdYAmGVUmIJGCMXnOC9QzkiUh8pWBgQAarP3q804/JUu+/H9jC0lNMh2Mf03feSvufkp8V+MFA==
-
- before_script:
-   - ./testspace_install.sh
-   - export PATH="${HOME}/testspace:${PATH}"
-   - mkdir -p shippable/codecoverage
-   - mkdir -p shippable/testresults
-    
- script: 
-   - testspace import .testspace.xml ${TESTSPACE_URL}
-   - testspace run ${TESTSPACE_URL}
+    - secure: i2PruLTZiYl1zdKyFqKTtoEIrcH7so5alMProTB5D5hXDZjMqrjePLkUhWYEhVYqSYQeocigDd3PsNxisrMSK91SjhslvpqPOC+fG3sZ4D+V5vLZDZK/6Tvdb/+A7shbezKYKdgJNOwgWPCw9QfqZKrAvMgdLfEZHHJPB89I7xDvt+ouZcgpiVz+ekK8fW913cVjpzJTaVLFCK8AgUkrZoXxfGC76yXmZt591zYbJ3bWFoECBLoB5GAGJRpLA9qjtc64Kjj1bQDLUR89h14UFzmdSWNmENCqZJcxnJIDdx0e7hOQ0RNkQ8bVHphHiO7lKnQ/LLUDKdxAMsttfZ6VvA==
    
-   - cp test/reports/TEST*.xml shippable/testresults
-   - cp coverage/coverage.xml shippable/codecoverage
+ script: 
+  - bundle install
+  - bundle exec rubocop --format emacs --out tmp/rubocop.txt || true
+  - bundle exec brakeman -o tmp/brakeman.json
+  - bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.json" > tmp/brakeman_checkstyle.xml
+  - bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-lint.txt  app/assets/stylesheets/ || true
+  
+  - export CI_REPORTS=$PWD/test/reports
+  - bundle exec rake minitest test
+  
+ after_script: 
+  - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+  - testspace publish @.testspace $TESTSPACE_TOKEN/${BRANCH}#ship.Build.${BUILD_NUMBER}

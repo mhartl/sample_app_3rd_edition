@@ -19,9 +19,19 @@ gem 'sdoc',                    '0.4.0', group: :doc
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
-  gem 'byebug',      '3.4.0'
+  #gem 'byebug',      '3.4.0'
+  gem 'pry-byebug', platform: [:ruby_20]
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
+  
+   # A Ruby static code analyzer.
+  gem 'rubocop', :require => false
+  # A static analysis security vulnerability scanner for Ruby on Rails.
+  gem 'brakeman', :require => false
+  # Translate brakeman json format into Checkstyle format.
+  gem 'brakeman_translate_checkstyle_format', :require => false
+  # Configurable tool for writing clean and consistent SCSS.
+  gem 'scss_lint', require: false
 end
 
 group :test do

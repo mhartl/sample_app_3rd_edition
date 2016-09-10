@@ -1,0 +1,6 @@
+## Addding some comments here
+tmp/rubocop.txt
+tmp/brakeman_checkstyle.xml
+tmp/scss-lint.txt
+[Tests]$CI_REPORTS/TEST*.xml{test} 
+coverage/coverage.xml
