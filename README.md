@@ -10,15 +10,17 @@ We made a few minor modifications for reporting purposes.
 Using Multiple Online CI Services:
 
 [![Build Status](https://travis-ci.org/testspace-samples/ruby.minitest.svg?branch=master)](https://travis-ci.org/testspace-samples/ruby.minitest)
-[![CircleCI](https://circleci.com/gh/munderseth/ruby.minitest.svg?style=svg)](https://circleci.com/gh/munderseth/ruby.minitest)
-[![Run Status](https://api.shippable.com/projects/574508792a8192902e21502e/badge?branch=master)](https://app.shippable.com/projects/574508792a8192902e21502e)
+[![CircleCI](https://circleci.com/gh/testspace-samples/ruby.minitest/tree/master.svg?style=svg)](https://circleci.com/gh/testspace-samples/ruby.minitest/tree/master)
+[![Run Status](https://api.shippable.com/projects/5703dabb2a8192902e1b99ce/badge?branch=master)](https://app.shippable.com/projects/5703dabb2a8192902e1b99ce)
+
 
 ***
 Publishing **Test Content** using www.testspace.com.
 
-[![Space Health](http://munderseth.stridespace.com/projects/273/spaces/883/badge)](http://munderseth.stridespace.com/projects/273/spaces/883 "Test Cases")
-[![Space Metric](http://munderseth.stridespace.com/projects/273/spaces/883/metrics/266/badge)](http://munderseth.stridespace.com/spaces/883/schema/Code%20Coverage "Code Coverage (lines)")
-[![Space Metric](http://munderseth.stridespace.com/projects/273/spaces/883/metrics/267/badge)](http://munderseth.stridespace.com/spaces/883/schema/Static%20Analysis "Static Analysis (issues)")
+[![Space Health](https://samples.testspace.com/projects/115/spaces/434/badge)](https://samples.testspace.com/projects/115/spaces/434 "Test Cases")
+[![Space Metric](https://samples.testspace.com/projects/115/spaces/434/metrics/252/badge)](https://samples.testspace.com/spaces/434/schema/Code%20Coverage "Code Coverage (lines)")
+[![Space Metric](https://samples.testspace.com/projects/115/spaces/434/metrics/251/badge)](https://samples.testspace.com/spaces/434/schema/Static%20Analysis "Static Analysis (issues)")
+
 
 ***
 In order to run this sample you will need a host workstation that supports the [Minitest test framework](http://docs.seattlerb.org/minitest/). 
