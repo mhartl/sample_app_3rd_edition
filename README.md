@@ -50,7 +50,7 @@ curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar
 testspace @.testspace $TESTSPACE_TOKEN/$BRANCH_NAME
 </pre> 
 
-Checkout the [Space](http://munderseth.stridespace.com/spaces/883). Note that the `.testspace` file contains the set of files to publish. 
+Checkout the [Space](https://samples.testspace.com/projects/ruby.minitest). Note that the `.testspace` file contains the set of files to publish. 
 
 
 
