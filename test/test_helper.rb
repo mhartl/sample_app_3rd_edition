@@ -7,7 +7,6 @@ Minitest::Reporters.use!
 ## Sample additions
 require 'simplecov'
 require 'simplecov-cobertura'
-SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
