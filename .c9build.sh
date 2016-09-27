@@ -11,9 +11,8 @@ bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.
 bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-lint.txt  app/assets/stylesheets/
 
 # Test
-export CI_REPORTS=$PWD/test/reports
 bundle exec rake minitest test
 
 # Publish
 curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-testspace @.testspace master.c9
+CI_REPORTS=$PWD/test/reports testspace @.testspace master.c9
