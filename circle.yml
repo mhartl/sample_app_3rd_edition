@@ -14,4 +14,4 @@ test:
  
   post:
     - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-    - CI_REPORTS=$PWD/test/reports testspace @.testspace $TESTSPACE_TOKEN/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
+    - CI_REPORTS=$CIRCLE_TEST_REPORTS testspace @.testspace $TESTSPACE_TOKEN/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
