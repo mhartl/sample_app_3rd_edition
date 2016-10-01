@@ -7,7 +7,8 @@
    global:
     - secure: oV87+FH6vmajTk1uzGd26N3ExTluFLp8j1RSB17TH/zfmE93kW/4Jv/YM9tYyIMRIFmomiaz44QY7hpUDbui2UJoju9nkRYiGCjoqahsAfpYpVaNL6TpzBbIi6SrEMhHFOdJwUpHy8vwxP7FXNt/rZGHUDu0XCJ1U9AKE+DSgaHkZxspqkKaGV9gfpVPWLuklnniDJ0a5eKXivrHoZaRGhQFC/ppN/wgTSUhIHU1xUeDQVTn6KSvxJe3ZmGzb1occFeIezS9pP6Q/D/ISDmJPteg+veylmHpg0BO7Zc/GB7wDS/roP3J1CISxhauUROohbPh/oYBxM9qWxobbhReyw==
 
- script: 
+ build:
+  ci: 
   - bundle install
   - bundle exec rubocop --format emacs --out tmp/rubocop.txt || true
   - bundle exec brakeman -o tmp/brakeman.json
@@ -16,6 +17,6 @@
   
   - bundle exec rake minitest test
   
- after_script: 
+ post_ci: 
   - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
   - CI_REPORTS=$PWD/test/reports testspace @.testspace $TESTSPACE_TOKEN/${BRANCH}#ship.Build.${BUILD_NUMBER}
