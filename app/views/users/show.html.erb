@@ -10,7 +10,19 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
+    <h3 style="text-align: left">プロフィール</h3>
+    <div class="profile">
+    <% unless @profile.nil? %>
+        <p><%= @profile.content %></p>
+    <% end %>
+    </div>
+    <% if @profile.nil? %>
+      <%= link_to "プロフィール編集", new_profile_path %>
+    <% else %>
+      <%= link_to "プロフィール編集", edit_profile_path %>
+    <% end %>
   </aside>
+
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>

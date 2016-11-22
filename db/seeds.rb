@@ -1,5 +1,5 @@
 # Users
-User.create!(name:  "Example User",
+user = User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
@@ -17,6 +17,10 @@ User.create!(name:  "Example User",
                activated:    true,
                activated_at: Time.zone.now)  
 end
+
+#Profile
+
+
 
 # Microposts
 users = User.order(:created_at).take(6)
