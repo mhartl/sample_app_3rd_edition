@@ -20,8 +20,6 @@ end
 
 #Profile
 
-profile = user.profiles.build(content: "text")
-profile.save
 
 
 # Microposts

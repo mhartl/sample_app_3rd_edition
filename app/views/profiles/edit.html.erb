@@ -1,0 +1,5 @@
+<%= form_for(@profile, url: update_profile_path(current_user.id)) do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit "submit" %>
+<% end %>
