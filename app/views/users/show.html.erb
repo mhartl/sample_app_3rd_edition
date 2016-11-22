@@ -10,12 +10,12 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
+    <% unless @profile.nil? %>
+        <%= @profile.content %>
+    <% end %>
+    <%= link_to "プロフィール編集", "#" %>
   </aside>
 
-  <div class="profile col-md-4">
-    <%= @profile.content %>
-    <%= link_to "プロフィール編集", "#" %>
-  </div>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>

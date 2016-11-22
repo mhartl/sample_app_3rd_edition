@@ -1,3 +1,3 @@
 class Profile < ActiveRecord::Base
-  has_many :profile
+  belongs_to :user
 end
