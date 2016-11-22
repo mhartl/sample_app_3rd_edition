@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'profiels/create'
+
+  get 'profiels/destroy'
+
+  get 'profiels/new'
+
   root                'static_pages#home'
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'

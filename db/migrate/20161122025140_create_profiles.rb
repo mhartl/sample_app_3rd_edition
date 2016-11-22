@@ -1,6 +1,6 @@
-class CreateProfileMessages < ActiveRecord::Migration
+class CreateProfiles < ActiveRecord::Migration
   def change
-    create_table :profile_messages do |t|
+    create_table :profiles do |t|
       t.text :content
       t.integer :user_id
 
