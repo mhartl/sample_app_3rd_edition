@@ -14,7 +14,19 @@ class MicropostsController < ApplicationController
   end
 
   def create_reply
-    if Micropost.new(micropost_params)
+    user = User.find(current_user.id)
+    micropost = Micropost.find(params[:id])
+    reply = user.microposts.build(micropost_params)
+    reply[:in_reply_to] = micropost.id
+    binding.pry
+    if reply.save
+      redirect_to root_url
+    end
+  end
+
+  def show_reply
+    micropost = Micropost.find(params[:id])
+    @reply = Micropost.where(in_reply_to: micropost.id)
   end
   
   def destroy

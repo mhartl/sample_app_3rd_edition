@@ -10,7 +10,7 @@
     <div class="reply-btn">
       <%= link_to "reply", "#" %>
     </div>
-    <%= form_for @micropost do |f| %>
+    <%= form_for @micropost, url: create_reply_path(micropost.id) do |f| %>
         <%= f.label :content%>
         <%= f.text_field :content %>
         <%= f.submit %>
@@ -22,8 +22,8 @@
   </span>
 
   <script>
-    function(){
+    $(function() {
 
-    }
+    });
   </script>
 </li>
