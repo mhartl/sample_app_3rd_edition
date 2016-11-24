@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  post 'microposts/create_reply/:id', to: 'microposts#create_reply', as: 'create_reply'
+  get 'microposts/show_reply/:id', to: 'microposts#show_reply', as: 'show_reply'
   resources :users do
     member do
       get :following, :followers

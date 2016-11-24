@@ -12,6 +12,21 @@ class MicropostsController < ApplicationController
       render 'static_pages/home'
     end
   end
+
+  def create_reply
+    user = User.find(current_user.id)
+    micropost = Micropost.find(params[:id])
+    reply = user.microposts.build(micropost_params)
+    reply[:in_reply_to] = micropost.id
+    if reply.save
+      redirect_to root_url
+    end
+  end
+
+  def show_reply
+    micropost = Micropost.find(params[:id])
+    @reply = Micropost.where(in_reply_to: micropost.id)
+  end
   
   def destroy
     @micropost.destroy

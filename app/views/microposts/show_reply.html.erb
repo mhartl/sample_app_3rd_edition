@@ -1,0 +1,11 @@
+<h1>返信一覧</h1>
+
+<div>
+<% @reply.each do |reply| %>
+      <div class="content">
+        <%= link_to gravatar_for(reply.user, size: 50), reply.user %>
+        <span class="user"><%= link_to reply.user.name, reply.user %></span>
+        <p><%= reply.content %></p>
+      </div>
+<% end %>
+</div>
