@@ -1,7 +1,8 @@
 <h1>返信一覧</h1>
 
 <div>
-<% @replys.each do |reply| %>
+<% @reply.each do |reply| %>
       <%= reply.user.name %>
       <%= reply.content %>
 <% end %>
+</div>
