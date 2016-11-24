@@ -12,6 +12,10 @@ class MicropostsController < ApplicationController
       render 'static_pages/home'
     end
   end
+
+  def create_reply
+    if Micropost.new(micropost_params)
+  end
   
   def destroy
     @micropost.destroy
