@@ -2,7 +2,10 @@
 
 <div>
 <% @reply.each do |reply| %>
-      <%= reply.user.name %>
-      <%= reply.content %>
+      <div class="content">
+        <%= link_to gravatar_for(reply.user, size: 50), reply.user %>
+        <span class="user"><%= link_to reply.user.name, reply.user %></span>
+        <p><%= reply.content %></p>
+      </div>
 <% end %>
 </div>

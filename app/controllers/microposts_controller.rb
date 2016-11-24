@@ -18,7 +18,6 @@ class MicropostsController < ApplicationController
     micropost = Micropost.find(params[:id])
     reply = user.microposts.build(micropost_params)
     reply[:in_reply_to] = micropost.id
-    binding.pry
     if reply.save
       redirect_to root_url
     end
