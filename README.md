@@ -1,4 +1,5 @@
-[![Testspace](http://www.testspace.com/public/img/testspace_logo.png)](http://www.testspace.com)
+[![Testspace](http://www.testspace.com/img/Testspace.png)](http://www.testspace.com)
+
 ***
 
 ## Ruby/Minitest sample for demonstrating Testspace 
@@ -17,10 +18,9 @@ Using Multiple Online CI Services:
 ***
 Publishing **Test Content** using www.testspace.com.
 
-[![Space Health](https://samples.testspace.com/projects/115/spaces/434/badge)](https://samples.testspace.com/projects/115/spaces/434 "Test Cases")
-[![Space Metric](https://samples.testspace.com/projects/115/spaces/434/metrics/252/badge)](https://samples.testspace.com/spaces/434/schema/Code%20Coverage "Code Coverage (lines)")
-[![Space Metric](https://samples.testspace.com/projects/115/spaces/434/metrics/251/badge)](https://samples.testspace.com/spaces/434/schema/Static%20Analysis "Static Analysis (issues)")
-
+[![Space Health](https://samples.testspace.com/projects/157/spaces/676/badge)](https://samples.testspace.com/projects/157/spaces/676 "Test Cases")
+[![Space Metric](https://samples.testspace.com/projects/157/spaces/676/metrics/604/badge)](https://samples.testspace.com/spaces/676/schema/Code%20Coverage "Code Coverage (lines)")
+[![Space Metric](https://samples.testspace.com/projects/157/spaces/676/metrics/605/badge)](https://samples.testspace.com/spaces/676/schema/Static%20Analysis "Static Analysis (issues)")
 
 ***
 In order to run this sample you will need a host workstation that supports the [Minitest test framework](http://docs.seattlerb.org/minitest/). 
@@ -30,10 +30,10 @@ Running Static Analysis:
 
 <pre>
 bundle install
-bundle exec rubocop --format emacs --out tmp/rubocop.txt
+bundle exec rubocop --format emacs --out tmp/rubocop.txt || true
 bundle exec brakeman -o tmp/brakeman.json
 bundle exec brakeman_translate_checkstyle_format translate --file="tmp/brakeman.json" > tmp/brakeman_checkstyle.xml
-bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-lint.txt  app/assets/stylesheets/
+bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-lint.txt  app/assets/stylesheets/ || true
 </pre> 
 
 Running Tests with Code Coverage: 
@@ -47,21 +47,15 @@ Publishing Results using **Testspace**:
 
 <pre>
 curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-testspace @.testspace $TESTSPACE_TOKEN/$BRANCH_NAME
+testspace @.testspace $TESTSPACE_TOKEN/$GITHUB_ORG:$REPO_NAME/$BRANCH_NAME#Build_Number
 </pre> 
 
-Checkout the [Space](https://samples.testspace.com/projects/ruby.minitest). Note that the `.testspace` file contains the set of files to publish. 
-
-
+Checkout the published [Test Content](https://samples.testspace.com/projects/testspace-samples:ruby.minitest). Note that the `.testspace` file contains the [set of files](http://help.testspace.com/how-to:publish-content#publishing-via-content-list-file) to publish. 
 
 ***
 
 To replicate this sample: 
-  - Account at www.testspace.com.
-  - CI Environment Variable called **TESTSPACE_TOKEN** required:
-    -  `TESTSPACE_TOKEN` = `credentials@my-org-name.testspace.com/my-project`
+  - Setup account at www.testspace.com.
+  - Create a CI Environment Variable called **TESTSPACE_TOKEN**:
+    -  `TESTSPACE_TOKEN` = `credentials@Your-Org-Name.testspace.com`
     - `credentials` set to `username:password` or your [access token](http://help.testspace.com/reference:client-reference#login-credentials).
-    - `my-org-name.testspace.com/my-project` based on your *organization* (subdomain) and *project* names.  
-
-   
- 

@@ -14,5 +14,10 @@ bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-
 bundle exec rake minitest test
 
 # Publish
+#
+# TESTSPACE_TOKEN = $ACCESS_TOKEN:@samples.testspace.com
+# $ testspace config url $ACCESS_TOKEN:@samples.testspace.com/testspace-samples:ruby.minitest
+#
 curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-CI_REPORTS=$PWD/test/reports testspace @.testspace master.c9
+BRANCH_NAME=`git symbolic-ref --short HEAD`
+CI_REPORTS=$PWD/test/reports testspace @.testspace ${BRANCH_NAME}#.c9.Build

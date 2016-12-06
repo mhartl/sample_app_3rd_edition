@@ -5,8 +5,8 @@
   
  env:
    global:
-    - secure: oV87+FH6vmajTk1uzGd26N3ExTluFLp8j1RSB17TH/zfmE93kW/4Jv/YM9tYyIMRIFmomiaz44QY7hpUDbui2UJoju9nkRYiGCjoqahsAfpYpVaNL6TpzBbIi6SrEMhHFOdJwUpHy8vwxP7FXNt/rZGHUDu0XCJ1U9AKE+DSgaHkZxspqkKaGV9gfpVPWLuklnniDJ0a5eKXivrHoZaRGhQFC/ppN/wgTSUhIHU1xUeDQVTn6KSvxJe3ZmGzb1occFeIezS9pP6Q/D/ISDmJPteg+veylmHpg0BO7Zc/GB7wDS/roP3J1CISxhauUROohbPh/oYBxM9qWxobbhReyw==
-
+   - secure: NdeNVBv2zZpGOUoORIRuy0qAu6GvILMUgEtTUB2cBM+4lXUErSbSYblp0ijcMmE50F8yI5HO1FJJUnyTnHZ6KXrcbYDB7iUBldXRiGjEkSWjcd5nJLL7N/CnSnwaP9UJnRKplYJOGhjAwpIC2jl17qPT2E1nFkbrlasORkuRaUKCdlVwe4T7t3brQd+Bia+UFh096dG2y0dt0o9lQWwp+yaYc6J6dWIeCfQDzbccL8sLEv64VL0SwRR4j8NhzutAWezS285qfIj2CSLYlgI/d2nxoW8MqXBZpAroYbIBkUeaWdaKIMJ7NvArlGIJQVuluT4Pa5qpjPgmXe8wdZK8mQ==
+   
  build:
   ci: 
    - bundle install
@@ -19,4 +19,4 @@
   
   post_ci: 
    - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-   - CI_REPORTS=$PWD/test/reports testspace @.testspace $TESTSPACE_TOKEN/${BRANCH}#ship.Build.${BUILD_NUMBER}
+   - CI_REPORTS=$PWD/test/reports testspace @.testspace $TESTSPACE_TOKEN/${SHIPPABLE_REPO_SLUG/\//:}/${BRANCH}#ship.Build.${BUILD_NUMBER}
