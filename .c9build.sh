@@ -20,4 +20,4 @@ bundle exec rake minitest test
 #
 curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
 BRANCH_NAME=`git symbolic-ref --short HEAD`
-CI_REPORTS=$PWD/test/reports testspace @.testspace ${BRANCH_NAME}#.c9.Build
+CI_REPORTS=$PWD/test/reports testspace @.testspace ${BRANCH_NAME}#c9.Build
