@@ -18,18 +18,9 @@ curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar
 
 # Publish
 
+## Requires TESTSPACE_TOKEN = $ACCESS_TOKEN:@samples.testspace.com
 BRANCH_NAME=`git symbolic-ref --short HEAD`
-
-# Requires following environment variable to be already set
-# TESTSPACE_TOKEN = $ACCESS_TOKEN:@samples.testspace.com
-
 GIT_URL=`git remote show origin -n | grep Fetch\ URL: | sed 's/.*URL: //'`
 REPO_SLUG=`echo ${GIT_URL#*github.com?} | sed 's/.git//'`
 
 CI_REPORTS=$PWD/test/reports testspace @.testspace $TESTSPACE_TOKEN/${REPO_SLUG/\//:}/${BRANCH_NAME}#c9.Build
-
-#############################################
-# Or use the "config" option
-#############################################
-# testspace config $ACCESS_TOKEN:@samples.testspace.com/PROJECT-NAME
-# CI_REPORTS=$PWD/test/reports testspace @.testspace ${BRANCH_NAME}#c9.Build
