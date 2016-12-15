@@ -11,7 +11,8 @@ test:
     - bundle exec scss-lint --no-color --format=Stats --format=Default --out=tmp/scss-lint.txt  app/assets/stylesheets/ || true
     
     - bundle exec rake minitest test
- 
+
+# Requires TESTSPACE_TOKEN environment variable. Also note that CI_REPORTS is referenced in .testspace.txt 
   post:
     - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-    - CI_REPORTS=$CIRCLE_TEST_REPORTS testspace @.testspace $TESTSPACE_TOKEN/${CIRCLE_PROJECT_USERNAME}:${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
+    - CI_REPORTS=$CIRCLE_TEST_REPORTS testspace @.testspace.txt $TESTSPACE_TOKEN/${CIRCLE_PROJECT_USERNAME}:${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
