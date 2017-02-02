@@ -1,0 +1,22 @@
+- if logged_in?
+  .row
+    %aside.col-md-4
+      %section.user_info
+        = render 'shared/user_info'
+      %section.stats
+        = render 'shared/stats'
+      %section.micropost_form
+        = render 'shared/micropost_form'
+    .col-md-8
+      %h3 Micropost Feed
+      = render 'shared/feed'
+- else
+  .center.jumbotron
+    %h1 Welcome to the Sample App
+    %h2
+      This is the home page for the
+      %a{:href => "http://www.railstutorial.org/"} Ruby on Rails Tutorial
+      sample application.
+    = link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary"
+  = link_to image_tag("rails.png", alt: "Rails logo"), |
+    'http://rubyonrails.org'                           |
