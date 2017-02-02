@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111214811) do
+ActiveRecord::Schema.define(version: 20170202075444) do
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -38,16 +38,20 @@ ActiveRecord::Schema.define(version: 20141111214811) do
   create_table "users", force: :cascade do |t|
     t.string   "name",              limit: 255
     t.string   "email",             limit: 255
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "password_digest",   limit: 255
     t.string   "remember_digest",   limit: 255
-    t.boolean  "admin",             limit: 1,   default: false
+    t.boolean  "admin",             limit: 1,     default: false
     t.string   "activation_digest", limit: 255
-    t.boolean  "activated",         limit: 1,   default: false
+    t.boolean  "activated",         limit: 1,     default: false
     t.datetime "activated_at"
     t.string   "reset_digest",      limit: 255
     t.datetime "reset_sent_at"
+    t.text     "introduction",      limit: 65535
+    t.integer  "age",               limit: 4
+    t.string   "nationality",       limit: 255
+    t.string   "image",             limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
