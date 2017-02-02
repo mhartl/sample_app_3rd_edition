@@ -17,7 +17,19 @@
       
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Age" %>
+      <%= f.text_field :age, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Nationality" %>
+      <%= f.text_field :nationality, class: 'form-control' %>
       
+      <%= f.label :password_confirmation, "Introduction" %>
+      <%= f.text_area :introduction, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Image" %>
+      <%= f.file_field :image, class: 'form-control' %>
+
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>
