@@ -1,0 +1,24 @@
+- provide(:title, @user.name)
+.row
+  %aside.col-md-4#user_info
+    %section.user_info
+      %h1
+        = gravatar_for @user
+        = @user.name
+    %section.stats
+      = render 'shared/stats'
+      .user_detail
+        %p= "email: " + @user.email if @user.email.present?
+        %p= "age: " + @user.age.to_s if @user.age.present?
+        %p= "nationality: " + @user.nationality if @user.nationality.present?
+        %p= "introduction" if @user.introduction.present?
+        .user_detail__introduction
+          = @user.introduction
+  .col-md-8
+    = render 'follow_form' if logged_in?
+    - if @user.microposts.any?
+      %h3
+        Microposts (#{@user.microposts.count})
+      %ol.microposts
+        = render @microposts
+      = will_paginate @microposts

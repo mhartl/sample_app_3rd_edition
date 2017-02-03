@@ -1,0 +1,4 @@
+- if @feed_items.any?
+  %ol.microposts
+    = render @feed_items
+  = will_paginate @feed_items

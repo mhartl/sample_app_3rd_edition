@@ -138,6 +138,19 @@ aside {
       margin-bottom: 3px;
       margin-top: 0px;
     }
+    .user_detail {
+    color: gray;
+      &__introduction {
+        width: 280px;
+        max-height: 280px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #user_info {
+    padding-top: 140px;
   }
 }
 

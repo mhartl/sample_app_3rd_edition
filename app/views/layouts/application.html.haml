@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= full_title(yield(:title))
+    = stylesheet_link_tag    'application', media: 'all', |
+      'data-turbolinks-track' => true                     |
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = render 'layouts/shim'
+  %body
+    = render 'layouts/header'
+    .container
+      - flash.each do |message_type, message|
+        %div{:class => "alert alert-#{message_type}"}= message
+      = yield
+      = render 'layouts/footer'
