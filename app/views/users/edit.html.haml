@@ -12,6 +12,12 @@
       = f.password_field :password, class: 'form-control'
       = f.label :password_confirmation, "Confirmation"
       = f.password_field :password_confirmation, class: 'form-control'
+      = f.label :age, "Age"
+      = f.text_field :age, class: 'form-control'
+      = f.label :nationality, "Nationality"
+      = f.text_field :nationality, class: 'form-control'
+      = f.label :introduction, "Introduction"
+      = f.text_area :introduction, class: 'form-control'
       = f.submit "Save changes", class: "btn btn-primary"
     .gravatar_edit
       = gravatar_for @user
