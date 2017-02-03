@@ -8,10 +8,3 @@
     %strong#followers.stat
       = @user.followers.count
     followers
-.user_detail
-  %p= "email: " + @user.email
-  %p= "age: " + @user.age.to_s
-  %p= "nationality: " + @user.nationality
-  %p= "introduction"
-  .user_detail__introduction
-    = @user.introduction
