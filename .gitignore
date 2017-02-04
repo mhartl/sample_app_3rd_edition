@@ -18,3 +18,5 @@
 # Ignore Spring files.
 /spring/*.pid
 /vendor/bundle
+
+/public/uploads
