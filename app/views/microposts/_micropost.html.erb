@@ -12,6 +12,9 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+  <%= link_to micropost_path(micropost) do %>
+    返信を見る
+  <% end %>
   <p class="reply">返信</p>
   <div class="reply_form", style="display:none">
     <%= form_for [micropost, @comment] do |f| %>
