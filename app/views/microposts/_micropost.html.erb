@@ -12,4 +12,12 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+  <p class="reply">返信</p>
+  <div class="reply_form", style="display:none">
+    <%= form_for [micropost, @comment] do |f| %>
+      <%= f.text_area :content, class: "form-control"%>
+      <%= f.file_field :picture, class: "form-control"%>
+      <%= f.submit "SEND", class: "btn btn-info" %>
+    <% end %>
+  </div>
 </li>
