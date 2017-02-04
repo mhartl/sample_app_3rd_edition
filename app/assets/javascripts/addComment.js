@@ -1,9 +1,6 @@
 $(function() {
   $(".reply").on('click', function() {
-    var n = $(this).parent().attr("id");
-    var a = n.match(/\d+/);
-    console.log(a[0]);
-    var b = $(this).next().show();
+    $(this).next().show();
   });
   $(".reply_show").on('click', function() {
     $.ajax ({
