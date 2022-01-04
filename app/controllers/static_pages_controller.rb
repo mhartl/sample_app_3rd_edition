@@ -15,4 +15,8 @@ class StaticPagesController < ApplicationController
   
   def contact
   end
+
+  def hello
+    render json:{ info: "欢迎来到showmebug" } 
+  end
 end
